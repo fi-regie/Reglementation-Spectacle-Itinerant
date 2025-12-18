@@ -61,24 +61,16 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
-    <!-- Chosen Palette: Warm Neutral Background (#FDFBF7), Deep Theatre Red Accent (#BE123C), Slate Grey Text (#1F2937), Warning Orange (#F97316) for safety -->
-    <!-- Application Structure Plan: 
-         1. Header: Title and Context.
-         2. Navigation: Thematic Tabs (Accueil/Dashboard, CTS & Météo, Animaux, Liens Légifrance).
-         3. Dashboard View: Summary stats and quick access cards.
-         4. CTS & Security View: Interactive "Wind Calculator" and safety checklists.
-         5. Animals View: Timeline of the 2021 law implementation.
-         6. Legal Library View: Filterable list of direct Legifrance links.
-         Designed to move from general overview -> specific technical tools -> reference material.
-    -->
-    <!-- Visualization & Content Choices:
-         - Wind Speed Gauge (Canvas/Chart.js): Visualizing safety thresholds is critical for tents. Interaction: Slider input.
-         - Animal Ban Timeline (Chart.js): To visualize the deadlines of Law 2021-1539.
-         - Filterable Link Table (JS+HTML): Efficient way to handle the "List of detailed links" request.
-         - Justification: Complex regulations need interactive tools (calculators) to be understood, not just text.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 </head>
 <body class="min-h-screen flex flex-col">
 
@@ -100,7 +92,7 @@
                     <button onclick="app.navigate('animals')" id="nav-animals" class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Animaux</button>
                     <button onclick="app.navigate('library')" id="nav-library" class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Bibliothèque Liens</button>
                 </nav>
-                <!-- Mobile Menu Button (Simple implementation) -->
+                <!-- Mobile Menu Button -->
                 <button class="md:hidden text-gray-500 hover:text-gray-900" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
                     <span class="text-2xl">☰</span>
                 </button>
@@ -366,49 +358,63 @@
                 title: "Arrêté du 23 janvier 1985 (CTS)",
                 desc: "Règlement de sécurité contre les risques d'incendie et de panique dans les ERP de type CTS (Chapiteaux, Tentes et Structures).",
                 keywords: ["chapiteau", "tente", "feu", "panique", "évacuation", "toile"],
-                url: "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006075253/"
+                url: "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000874028/"
             },
             {
                 theme: "Espace Public",
-                title: "L. 2125-1 CGCT",
-                desc: "Règles générales d'occupation du domaine public (AOT - Autorisation d'Occupation Temporaire).",
-                keywords: ["rue", "espace public", "mairie", "redevance", "autorisation"],
-                url: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034028045/"
+                title: "Code général de la propriété des personnes publiques",
+                desc: "Articles relatifs à l'occupation du domaine public (Autorisation d'Occupation Temporaire).",
+                keywords: ["rue", "espace public", "mairie", "redevance", "autorisation", "AOT"],
+                url: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000031366252/"
             },
             {
                 theme: "Animaux",
                 title: "Loi n° 2021-1539 du 30 nov 2021",
                 desc: "Loi visant à lutter contre la maltraitance animale (Interdiction faune sauvage cirque itinérant).",
-                keywords: ["animaux", "lion", "tigre", "interdiction", "bien-être"],
-                url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044387560"
+                keywords: ["animaux", "lion", "tigre", "interdiction", "bien-être", "cirque"],
+                url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044387560/"
             },
             {
                 theme: "Travail / Artistes",
-                title: "Code du Travail (Sécurité)",
+                title: "Code du travail - Santé et sécurité",
                 desc: "Dispositions générales sur la santé et la sécurité au travail (applicable au montage/démontage).",
-                keywords: ["sécurité", "travail", "montage", "équipement", "casque"],
-                url: "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006193175"
+                keywords: ["sécurité", "travail", "montage", "équipement", "casque", "chantier"],
+                url: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006072050/"
             },
             {
                 theme: "Bruit / Son",
-                title: "Décret n° 2017-1244 (Bruit)",
-                desc: "Prévention des risques liés aux bruits et aux sons amplifiés (limitation décibels).",
-                keywords: ["son", "bruit", "voisinage", "décibel", "concert"],
-                url: "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000035388043/"
+                title: "Code de la santé publique - Bruit",
+                desc: "Réglementation relative à la prévention des risques liés aux bruits et aux sons amplifiés.",
+                keywords: ["son", "bruit", "voisinage", "décibel", "concert", "nuisance"],
+                url: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006072665/"
             },
             {
                 theme: "ERP / Général",
                 title: "Arrêté du 25 juin 1980",
-                desc: "Règlement de sécurité contre les risques d'incendie et de panique (Dispositions Générales).",
-                keywords: ["feu", "extincteur", "alarme", "erp"],
-                url: "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006073860/"
+                desc: "Règlement de sécurité contre les risques d'incendie et de panique dans les ERP (Dispositions Générales).",
+                keywords: ["feu", "extincteur", "alarme", "erp", "sécurité", "incendie"],
+                url: "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000510784/"
             },
             {
                 theme: "Contrôle Technique",
-                title: "Article R123-43 CCH",
-                desc: "Vérifications techniques obligatoires dans les ERP (Electricité, Levage, CTS).",
-                keywords: ["contrôle", "bureau de contrôle", "électricité", "levage"],
-                url: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028753232"
+                title: "Code de la construction et de l'habitation",
+                desc: "Articles relatifs aux vérifications techniques obligatoires dans les ERP.",
+                keywords: ["contrôle", "bureau de contrôle", "électricité", "levage", "vérification"],
+                url: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006074096/"
+            },
+            {
+                theme: "Spectacle Vivant",
+                title: "Code du travail - Statut des artistes",
+                desc: "Dispositions relatives au statut des artistes du spectacle.",
+                keywords: ["artiste", "intermittent", "spectacle", "cachet", "contrat"],
+                url: "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006193175"
+            },
+            {
+                theme: "Assurance / Responsabilité",
+                title: "Code des assurances",
+                desc: "Obligations d'assurance responsabilité civile pour les organisateurs.",
+                keywords: ["assurance", "responsabilité", "civile", "RC", "garantie"],
+                url: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006073984/"
             }
         ];
 
@@ -452,6 +458,9 @@
                 app.setupWindCalculator();
                 app.renderLinksTable(regulationsData);
                 app.setupSearch();
+                
+                // Initialize navigation state
+                app.navigate('dashboard');
             },
 
             // --- Logic: Wind Calculator ---
@@ -505,6 +514,9 @@
 
                 slider.addEventListener('input', update);
                 maxSelect.addEventListener('change', update);
+                
+                // Initial update
+                update();
             },
 
             // --- Logic: Link Filter ---
@@ -580,7 +592,14 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: { position: 'right' }
+                            legend: { 
+                                position: 'right',
+                                labels: {
+                                    font: {
+                                        family: "'Noto Sans', sans-serif"
+                                    }
+                                }
+                            }
                         }
                     }
                 });
@@ -601,8 +620,18 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
-                            y: { display: false },
-                            x: { grid: { display: false } }
+                            y: { 
+                                display: false,
+                                max: 100
+                            },
+                            x: { 
+                                grid: { display: false },
+                                ticks: {
+                                    font: {
+                                        family: "'Noto Sans', sans-serif"
+                                    }
+                                }
+                            }
                         },
                         plugins: {
                             legend: { display: false },
@@ -647,12 +676,37 @@
                         scales: {
                             y: { 
                                 display: true,
-                                title: { display: true, text: '% Interdiction' },
-                                max: 100
+                                title: { 
+                                    display: true, 
+                                    text: '% Interdiction',
+                                    font: {
+                                        family: "'Noto Sans', sans-serif"
+                                    }
+                                },
+                                max: 100,
+                                ticks: {
+                                    font: {
+                                        family: "'Noto Sans', sans-serif"
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        family: "'Noto Sans', sans-serif"
+                                    }
+                                }
                             }
                         },
                         plugins: {
-                            title: { display: true, text: 'Trajectoire Loi 2021 (Fin des animaux sauvages)' },
+                            title: { 
+                                display: true, 
+                                text: 'Trajectoire Loi 2021 (Fin des animaux sauvages)',
+                                font: {
+                                    family: "'Noto Sans', sans-serif",
+                                    size: 14
+                                }
+                            },
                             tooltip: {
                                 callbacks: {
                                     label: (ctx) => {
