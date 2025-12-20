@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,12 @@
     <style>
         /* Custom Font Import - Noto Sans for readability */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600;700&display=swap');
-        
+
+
         body {
             font-family: 'Noto Sans', sans-serif;
-            background-color: #FDFBF7; /* Warm neutral background (Canvas/Paper) */
+            background-color: #FDFBF7;
+            /* Warm neutral background (Canvas/Paper) */
             color: #1F2937;
         }
 
@@ -37,19 +40,23 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #F3F4F6;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #D1D5DB;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #9CA3AF;
         }
 
         .active-nav {
-            border-bottom: 3px solid #BE123C; /* Deep Red Accent */
+            border-bottom: 3px solid #BE123C;
+            /* Deep Red Accent */
             color: #881337;
             font-weight: 700;
         }
@@ -57,6 +64,7 @@
         .card-hover {
             transition: all 0.3s ease;
         }
+
         .card-hover:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -67,11 +75,19 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body class="min-h-screen flex flex-col">
 
     <!-- Header -->
@@ -79,21 +95,29 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <span class="text-3xl mr-2">🎪</span>
+                    <span class="text-3xl mr-2"></span>
                     <div>
-                        <h1 class="text-xl font-bold text-gray-900 leading-tight">Réglementation Spectacle Itinérant</h1>
+                        <h1 class="text-xl font-bold text-gray-900 leading-tight">Réglementation Spectacle Itinérant
+                        </h1>
                         <p class="text-xs text-gray-500">Portail de veille juridique & sécurité (Source: Légifrance)</p>
                     </div>
                 </div>
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex space-x-8">
-                    <button onclick="app.navigate('dashboard')" id="nav-dashboard" class="nav-btn active-nav px-3 py-2 text-sm font-medium">Vue d'ensemble</button>
-                    <button onclick="app.navigate('cts')" id="nav-cts" class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">CTS & Sécurité</button>
-                    <button onclick="app.navigate('animals')" id="nav-animals" class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Animaux</button>
-                    <button onclick="app.navigate('library')" id="nav-library" class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Bibliothèque Liens</button>
+                    <button onclick="app.navigate('dashboard')" id="nav-dashboard"
+                        class="nav-btn active-nav px-3 py-2 text-sm font-medium">Vue d'ensemble</button>
+                    <button onclick="app.navigate('cts')" id="nav-cts"
+                        class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">CTS &
+                        Sécurité</button>
+                    <button onclick="app.navigate('animals')" id="nav-animals"
+                        class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Animaux</button>
+                    <button onclick="app.navigate('library')" id="nav-library"
+                        class="nav-btn px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700">Bibliothèque
+                        Liens</button>
                 </nav>
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-gray-500 hover:text-gray-900" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <button class="md:hidden text-gray-500 hover:text-gray-900"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
                     <span class="text-2xl">☰</span>
                 </button>
             </div>
@@ -101,10 +125,17 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <button onclick="app.navigate('dashboard')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Vue d'ensemble</button>
-                <button onclick="app.navigate('cts')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">CTS & Sécurité</button>
-                <button onclick="app.navigate('animals')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Animaux</button>
-                <button onclick="app.navigate('library')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Bibliothèque Liens</button>
+                <button onclick="app.navigate('dashboard')"
+                    class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Vue
+                    d'ensemble</button>
+                <button onclick="app.navigate('cts')"
+                    class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">CTS &
+                    Sécurité</button>
+                <button onclick="app.navigate('animals')"
+                    class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Animaux</button>
+                <button onclick="app.navigate('library')"
+                    class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50">Bibliothèque
+                    Liens</button>
             </div>
         </div>
     </header>
@@ -112,22 +143,26 @@
     <!-- Main Content Area -->
     <main class="flex-grow bg-[#FDFBF7] py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <!-- VIEW: DASHBOARD -->
             <div id="view-dashboard" class="space-y-8 animate-fade-in">
                 <!-- Intro Section -->
                 <div class="bg-white rounded-xl shadow-sm p-6 border-l-4 border-[#BE123C]">
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Synthèse Réglementaire</h2>
                     <p class="text-gray-600 mb-4">
-                        Ce portail rassemble les textes officiels critiques pour l'organisation de spectacles vivants itinérants (Cirque, Théâtre de rue, Chapiteaux). 
-                        Il couvre la sécurité des établissements de type CTS, les contraintes météorologiques, et les récentes évolutions législatives concernant la faune sauvage.
+                        Ce portail rassemble les textes officiels critiques pour l'organisation de spectacles vivants
+                        itinérants (Cirque, Théâtre de rue, Chapiteaux).
+                        Il couvre la sécurité des établissements de type CTS, les contraintes météorologiques, et les
+                        récentes évolutions législatives concernant la faune sauvage.
                         Utilisez les outils interactifs pour vérifier vos obligations.
                     </p>
                     <div class="flex gap-4">
-                        <button onclick="app.navigate('library')" class="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                        <button onclick="app.navigate('library')"
+                            class="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
                             🔍 Accéder aux textes officiels
                         </button>
-                        <button onclick="app.navigate('cts')" class="bg-[#BE123C] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#9f1239] transition-colors">
+                        <button onclick="app.navigate('cts')"
+                            class="bg-[#BE123C] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#9f1239] transition-colors">
                             ⚠️ Vérification Météo & Ancrage
                         </button>
                     </div>
@@ -142,7 +177,6 @@
                             <p class="text-lg font-bold text-gray-900">Arrêté 23 Janv. 1985</p>
                             <p class="text-xs text-green-600">Réglementation ERP type CTS</p>
                         </div>
-                        <div class="h-12 w-12 bg-red-50 rounded-full flex items-center justify-center text-xl">⛺</div>
                     </div>
                     <!-- Stat 2 -->
                     <div class="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between card-hover">
@@ -151,7 +185,6 @@
                             <p class="text-lg font-bold text-gray-900">Échéance 2028</p>
                             <p class="text-xs text-orange-600">Loi du 30 nov. 2021</p>
                         </div>
-                        <div class="h-12 w-12 bg-orange-50 rounded-full flex items-center justify-center text-xl">🦁</div>
                     </div>
                     <!-- Stat 3 -->
                     <div class="bg-white p-6 rounded-xl shadow-sm flex items-center justify-between card-hover">
@@ -160,14 +193,15 @@
                             <p class="text-lg font-bold text-gray-900">100 km/h</p>
                             <p class="text-xs text-blue-600">Évacuation (selon homologation)</p>
                         </div>
-                        <div class="h-12 w-12 bg-blue-50 rounded-full flex items-center justify-center text-xl">💨</div>
                     </div>
                 </div>
 
                 <!-- Main Dashboard Chart -->
                 <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition des points de vigilance (Statistique Estimée)</h3>
-                    <p class="text-sm text-gray-500 mb-6">Proportion des exigences réglementaires par catégorie pour un dossier de sécurité type.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Répartition des points de vigilance
+                        (Statistique Estimée)</h3>
+                    <p class="text-sm text-gray-500 mb-6">Proportion des exigences réglementaires par catégorie pour un
+                        dossier de sécurité type.</p>
                     <div class="chart-container">
                         <canvas id="dashboardChart"></canvas>
                     </div>
@@ -179,7 +213,8 @@
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Sécurité Chapiteaux (CTS) & Météo</h2>
                     <p class="text-gray-600 mb-6">
-                        L'exploitation d'un chapiteau est soumise à l'Arrêté du 23 janvier 1985. Deux facteurs critiques : la solidité au vent (neige) et la réaction au feu.
+                        L'exploitation d'un chapiteau est soumise à l'Arrêté du 23 janvier 1985. Deux facteurs critiques
+                        : la solidité au vent (neige) et la réaction au feu.
                         L'exploitant doit tenir un registre de sécurité et surveiller la météo en permanence.
                     </p>
 
@@ -191,29 +226,36 @@
                             </h3>
                             <div class="space-y-6">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Vitesse max homologuée (Carnet de bord)</label>
-                                    <select id="maxWindInput" class="w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Vitesse max homologuée
+                                        (Carnet de bord)</label>
+                                    <select id="maxWindInput"
+                                        class="w-full rounded-md border-gray-300 shadow-sm p-2 border bg-white">
                                         <option value="85">85 km/h (Structures légères)</option>
                                         <option value="100" selected>100 km/h (Standard)</option>
                                         <option value="120">120 km/h (Renforcé)</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Vitesse du vent actuelle (Anémomètre)</label>
-                                    <input type="range" id="currentWindInput" min="0" max="140" value="45" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Vitesse du vent actuelle
+                                        (Anémomètre)</label>
+                                    <input type="range" id="currentWindInput" min="0" max="140" value="45"
+                                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                                     <div class="flex justify-between text-xs text-gray-500 mt-1">
                                         <span>0 km/h</span>
-                                        <span id="currentWindDisplay" class="font-bold text-blue-600 text-base">45 km/h</span>
+                                        <span id="currentWindDisplay" class="font-bold text-blue-600 text-base">45
+                                            km/h</span>
                                         <span>140 km/h</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Status Indicator -->
-                                <div id="weatherStatus" class="bg-green-100 border border-green-200 p-4 rounded-lg flex items-start gap-3 transition-colors duration-300">
+                                <div id="weatherStatus"
+                                    class="bg-green-100 border border-green-200 p-4 rounded-lg flex items-start gap-3 transition-colors duration-300">
                                     <div id="weatherIcon" class="text-2xl">✅</div>
                                     <div>
                                         <h4 id="weatherTitle" class="font-bold text-green-800">Situation Normale</h4>
-                                        <p id="weatherDesc" class="text-sm text-green-700">Exploitation autorisée. Continuez la veille météorologique.</p>
+                                        <p id="weatherDesc" class="text-sm text-green-700">Exploitation autorisée.
+                                            Continuez la veille météorologique.</p>
                                     </div>
                                 </div>
                             </div>
@@ -230,34 +272,39 @@
 
                     <!-- Checklist -->
                     <div class="mt-8">
-                        <h3 class="text-lg font-bold text-gray-900 mb-4">Points de Contrôle Obligatoires (Matin & Soir)</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Points de Contrôle Obligatoires (Matin & Soir)
+                        </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="flex items-start p-3 bg-gray-50 rounded-lg">
                                 <input type="checkbox" class="mt-1 mr-3 h-4 w-4 text-red-600 rounded border-gray-300">
                                 <div>
                                     <span class="font-medium text-gray-900">Ancrages et Haubanage</span>
-                                    <p class="text-xs text-gray-500">Vérifier la tension des sangles (cliquets) et la tenue des pieux (pas de soulèvement de terre).</p>
+                                    <p class="text-xs text-gray-500">Vérifier la tension des sangles (cliquets) et la
+                                        tenue des pieux (pas de soulèvement de terre).</p>
                                 </div>
                             </div>
                             <div class="flex items-start p-3 bg-gray-50 rounded-lg">
                                 <input type="checkbox" class="mt-1 mr-3 h-4 w-4 text-red-600 rounded border-gray-300">
                                 <div>
                                     <span class="font-medium text-gray-900">Issue de Secours</span>
-                                    <p class="text-xs text-gray-500">Déverrouillées, dégagées de tout obstacle, éclairage de sécurité fonctionnel.</p>
+                                    <p class="text-xs text-gray-500">Déverrouillées, dégagées de tout obstacle,
+                                        éclairage de sécurité fonctionnel.</p>
                                 </div>
                             </div>
                             <div class="flex items-start p-3 bg-gray-50 rounded-lg">
                                 <input type="checkbox" class="mt-1 mr-3 h-4 w-4 text-red-600 rounded border-gray-300">
                                 <div>
                                     <span class="font-medium text-gray-900">Extincteurs</span>
-                                    <p class="text-xs text-gray-500">En place, plombés, vérifiés annuellement. Accès non bloqué par des décors.</p>
+                                    <p class="text-xs text-gray-500">En place, plombés, vérifiés annuellement. Accès non
+                                        bloqué par des décors.</p>
                                 </div>
                             </div>
                             <div class="flex items-start p-3 bg-gray-50 rounded-lg">
                                 <input type="checkbox" class="mt-1 mr-3 h-4 w-4 text-red-600 rounded border-gray-300">
                                 <div>
                                     <span class="font-medium text-gray-900">Installations Électriques</span>
-                                    <p class="text-xs text-gray-500">Coffrets fermés à clé, câbles protégés des passages (passages de câbles).</p>
+                                    <p class="text-xs text-gray-500">Coffrets fermés à clé, câbles protégés des passages
+                                        (passages de câbles).</p>
                                 </div>
                             </div>
                         </div>
@@ -270,7 +317,8 @@
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <h2 class="text-2xl font-bold text-gray-900 mb-2">Faune Sauvage & Cirque</h2>
                     <p class="text-gray-600 mb-6">
-                        La Loi n° 2021-1539 du 30 novembre 2021 visant à lutter contre la maltraitance animale impose une transition majeure pour les cirques itinérants.
+                        La Loi n° 2021-1539 du 30 novembre 2021 visant à lutter contre la maltraitance animale impose
+                        une transition majeure pour les cirques itinérants.
                         L'objectif est l'arrêt total de la présentation d'animaux sauvages au public d'ici 2028.
                     </p>
 
@@ -285,15 +333,20 @@
                             <ul class="space-y-4 text-sm text-orange-800">
                                 <li class="flex items-start">
                                     <span class="mr-2 mt-1">🚫</span>
-                                    <span><strong>Interdiction d'acquisition :</strong> Depuis 2023, interdiction d'acquérir ou de reproduire des animaux sauvages dans les cirques itinérants.</span>
+                                    <span><strong>Interdiction d'acquisition :</strong> Depuis 2023, interdiction
+                                        d'acquérir ou de reproduire des animaux sauvages dans les cirques
+                                        itinérants.</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="mr-2 mt-1">🛑</span>
-                                    <span><strong>Interdiction de représentation :</strong> Au 1er décembre 2028, interdiction totale de présenter des animaux sauvages au public dans des établissements itinérants.</span>
+                                    <span><strong>Interdiction de représentation :</strong> Au 1er décembre 2028,
+                                        interdiction totale de présenter des animaux sauvages au public dans des
+                                        établissements itinérants.</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-2 mt-1">🚚</span>
-                                    <span><strong>Transport :</strong> Le transport de ces animaux sera également interdit à cette date, sauf pour rejoindre des refuges.</span>
+                                    <span class="mr-2 mt-1">⛔️</span>
+                                    <span><strong>Transport :</strong> Le transport de ces animaux sera également
+                                        interdit à cette date, sauf pour rejoindre des refuges.</span>
                                 </li>
                             </ul>
                         </div>
@@ -306,13 +359,14 @@
                 <div class="bg-white rounded-xl shadow-sm p-6">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Bibliothèque Officielle Légifrance</h2>
                     <p class="text-gray-600 mb-6">
-                        Accès direct aux textes consolidés. Utilisez le filtre pour trouver un sujet spécifique (ex: "feu", "bruit", "travail").
+                        Accès direct aux textes consolidés. Utilisez le filtre pour trouver un sujet spécifique (ex:
+                        "feu", "bruit", "travail").
                     </p>
-                    
+
                     <!-- Search Filter -->
                     <div class="mb-6 relative">
-                        <input type="text" id="linkSearch" placeholder="Filtrer les textes (ex: Sécurité, Travail...)" 
-                               class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-shadow">
+                        <input type="text" id="linkSearch" placeholder="Filtrer les textes (ex: Sécurité, Travail...)"
+                            class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-shadow">
                         <span class="absolute left-3 top-3.5 text-gray-400">🔍</span>
                     </div>
 
@@ -321,10 +375,18 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thème</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Titre & Référence</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mots Clés</th>
-                                    <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Thème</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Titre & Référence</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Mots Clés</th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200" id="linksTableBody">
@@ -341,14 +403,111 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="mb-2">Application d'aide à la décision pour le spectacle vivant.</p>
-            <p class="text-xs">Les informations fournies sont à titre indicatif et ne remplacent pas la consultation des textes officiels sur Legifrance.gouv.fr.</p>
-            <p class="text-xs mt-4 opacity-50">&copy; 2025 - Généré par Canvas Assistant</p>
+<!-- Footer -->
+<footer class="bg-[#f8f9fa] text-[#495057] py-8 mt-12 border-t border-[#dee2e6]">
+    <div class="max-w-8xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Première colonne -->
+            <div>
+                <h4 class="text-xl font-bold mb-4 text-[#343a40]">Réglementation Spectacle Itinérant</h4>
+                <p class="text-[#6c757d] text-sm mb-2">
+                    Outil de veille juridique et sécurité pour le spectacle itinérant.
+                    <br>Simulateur vent / météo.
+                    <br>Simulateur Échelle de Beaufort,
+                    <br>Base de textes officiels.
+                </p>
+                <p class="text-[#6c757d] text-sm mb-2">
+                    Accompagne les professionnels dans l'application des réglementations ERP,
+                    <br>espace public et droit du travail spécifiques au secteur.
+                </p>
+                <p class="text-[#6c757d] text-sm">
+                    <small>Mise à jour : 19 décembre 2025</small>
+                </p>
+            </div>
+
+            <!-- Deuxième colonne avec bordure gauche -->
+            <div class="md:border-l md:border-[#dee2e6] md:pl-8">
+                <h4 class="text-xl font-bold mb-4 text-[#343a40]">Applications Connexes</h4>
+            
+                <div class="space-y-4">
+
+                    <a href="https://fi-regie.github.io/Reglementation-Spectacle-Itinerant/" target="_blank"
+                        class="flex items-start text-[#495057] hover:text-[#0d6efd] transition">
+                        <i class="fas fa-external-link-alt mr-2 mt-1"></i>
+                        <div>
+                            <h5> Réglementation Spectacle Itinérant (cette Appli) </h5>
+                            <p class="text-sm text-[#6c757d] mt-1">
+                                Portail de veille juridique & de sécurité du Spectacle Itinérant
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="https://fi-regie.github.io/Simulateur-Reglement-Securite-ERP/" target="_blank"
+                        class="flex items-start text-[#495057] hover:text-[#0d6efd] transition">
+                        <i class="fas fa-external-link-alt mr-2 mt-1"></i>
+                        <div>
+                            <h5> Outil de Simulation Sécurité</h5>
+                            <p class="text-sm text-[#6c757d] mt-1">
+                                Simulez votre Catégorie ERP, vos dégagements UP, Éch. de Beaufort
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="https://fi-regie.github.io/reglementation-CTS-/" target="_blank"
+                        class="flex items-start text-[#495057] hover:text-[#0d6efd] transition">
+                        <i class="fas fa-external-link-alt mr-2 mt-1"></i>
+                        <div>
+                            <h5> Règlementation CTS</h5>
+                            <p class="text-sm text-[#6c757d] mt-1">
+                                Dispositions applicables aux établissements de type Chapiteaux, Tentes et Structures
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Troisième colonne avec bordure gauche -->
+            <div class="md:border-l md:border-[#dee2e6] md:pl-8">
+                <h4 class="text-xl font-bold mb-4 text-[#343a40]">Formation</h4>
+                <div class="space-y-4">
+                    <a href="https://fi-regie.github.io/Formation-Securite-ERP/" target="_blank"
+                        class="flex items-start text-[#495057] hover:text-[#0d6efd] transition">
+                        <i class="fas fa-external-link-alt mr-2 mt-1"></i>
+                        <div>
+                            <h5> Formation Sécurité ERP</h5>
+                            <p class="text-sm text-[#6c757d] mt-1">
+                                Outil pédagogique open source destiné à la formation des responsables techniques
+                                d'ERP Type L
+                            </p>
+                        </div>
+                    </a>
+
+                    <a href="https://fi-regie.github.io/Quiz-CTS/" target="_blank"
+                        class="flex items-start text-[#495057] hover:text-[#0d6efd] transition">
+                        <i class="fas fa-external-link-alt mr-2 mt-1"></i>
+                        <div>
+                            <h5> Le Quiz du Régisseur</h5>
+                            <p class="text-sm text-[#6c757d] mt-1">
+                                Amusez-vous, testez vos connaissances, apprenez...
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <div class="mt-8 pt-8 border-t border-[#dee2e6] text-center text-sm text-[#6c757d]">
+            <p>
+                <i class="fas fa-gavel mr-2"></i>
+                Formation Sécurité - Établissements Recevant Du Public (ERP)
+            </p>
+            <p class="mt-2">
+                ©️ Open Source • Partage Contribution : https://github.com/fi-regie/Reglementation-Spectacle-Itinerant • Contact :
+                philippe.potier-regie@proton.me
+            </p>
+        </div>
+    </div>
+</footer>
 
     <script>
         // --- Data Layer: The "Source Report" Content ---
@@ -425,24 +584,24 @@
                 wind: 45,
                 maxWind: 100
             },
-            
+
             navigate: (viewId) => {
                 // Update State
                 app.state.currentView = viewId;
 
                 // Hide all views
                 document.querySelectorAll('[id^="view-"]').forEach(el => el.classList.add('hidden'));
-                
+
                 // Show target view
                 const target = document.getElementById(`view-${viewId}`);
                 target.classList.remove('hidden');
-                
+
                 // Update Nav Buttons
                 document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-nav', 'text-gray-900'));
                 document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.add('text-gray-500'));
-                
+
                 const activeBtn = document.getElementById(`nav-${viewId}`);
-                if(activeBtn) {
+                if (activeBtn) {
                     activeBtn.classList.add('active-nav');
                     activeBtn.classList.remove('text-gray-500');
                 }
@@ -458,7 +617,7 @@
                 app.setupWindCalculator();
                 app.renderLinksTable(regulationsData);
                 app.setupSearch();
-                
+
                 // Initialize navigation state
                 app.navigate('dashboard');
             },
@@ -468,13 +627,13 @@
                 const slider = document.getElementById('currentWindInput');
                 const display = document.getElementById('currentWindDisplay');
                 const maxSelect = document.getElementById('maxWindInput');
-                
+
                 const update = () => {
                     const current = parseInt(slider.value);
                     const max = parseInt(maxSelect.value);
-                    
+
                     display.innerText = current + " km/h";
-                    
+
                     const statusBox = document.getElementById('weatherStatus');
                     const icon = document.getElementById('weatherIcon');
                     const title = document.getElementById('weatherTitle');
@@ -482,7 +641,7 @@
 
                     // Logic for thresholds (Standard CTS heuristic)
                     const warningThreshold = max * 0.75; // Pre-alert at 75%
-                    
+
                     statusBox.className = "p-4 rounded-lg flex items-start gap-3 transition-colors duration-300 border";
 
                     if (current >= max) {
@@ -514,7 +673,7 @@
 
                 slider.addEventListener('input', update);
                 maxSelect.addEventListener('change', update);
-                
+
                 // Initial update
                 update();
             },
@@ -523,8 +682,8 @@
             renderLinksTable: (data) => {
                 const tbody = document.getElementById('linksTableBody');
                 tbody.innerHTML = '';
-                
-                if(data.length === 0) {
+
+                if (data.length === 0) {
                     document.getElementById('noResults').classList.remove('hidden');
                     return;
                 } else {
@@ -563,9 +722,9 @@
                 const input = document.getElementById('linkSearch');
                 input.addEventListener('input', (e) => {
                     const term = e.target.value.toLowerCase();
-                    const filtered = regulationsData.filter(item => 
-                        item.title.toLowerCase().includes(term) || 
-                        item.desc.toLowerCase().includes(term) || 
+                    const filtered = regulationsData.filter(item =>
+                        item.title.toLowerCase().includes(term) ||
+                        item.desc.toLowerCase().includes(term) ||
                         item.keywords.some(k => k.toLowerCase().includes(term)) ||
                         item.theme.toLowerCase().includes(term)
                     );
@@ -576,7 +735,7 @@
             // --- Chart.js Implementations ---
             renderCharts: () => {
                 Chart.defaults.font.family = "'Noto Sans', sans-serif";
-                
+
                 // 1. Dashboard Overview (Doughnut)
                 new Chart(document.getElementById('dashboardChart'), {
                     type: 'doughnut',
@@ -592,7 +751,7 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: { 
+                            legend: {
                                 position: 'right',
                                 labels: {
                                     font: {
@@ -620,11 +779,11 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
-                            y: { 
+                            y: {
                                 display: false,
                                 max: 100
                             },
-                            x: { 
+                            x: {
                                 grid: { display: false },
                                 ticks: {
                                     font: {
@@ -674,10 +833,10 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
-                            y: { 
+                            y: {
                                 display: true,
-                                title: { 
-                                    display: true, 
+                                title: {
+                                    display: true,
                                     text: '% Interdiction',
                                     font: {
                                         family: "'Noto Sans', sans-serif"
@@ -699,8 +858,8 @@
                             }
                         },
                         plugins: {
-                            title: { 
-                                display: true, 
+                            title: {
+                                display: true,
                                 text: 'Trajectoire Loi 2021 (Fin des animaux sauvages)',
                                 font: {
                                     family: "'Noto Sans', sans-serif",
@@ -731,4 +890,5 @@
 
     </script>
 </body>
+
 </html>
